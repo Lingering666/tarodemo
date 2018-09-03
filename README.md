@@ -185,3 +185,54 @@ if (process.env.TARO_ENV === 'weapp') {
   require('path/to/h5/name')
 }
 ```
+
+## Redux
+> 详细配置见<a href="https://nervjs.github.io/taro/redux.html">官方文档</a>
+
+在相关配置完成后, redux就可以在页面（或者组件）中进行使用<br/>
+我们将通过 tarojs/redux 提供的 connect 方法将 redux 与我们的页面进行连接。
+
+```
+// src/pages/index/index.js
+import Taro, { Component } from '@tarojs/taro'
+import { View, Text } from '@tarojs/components'
+import { connect } from '@tarojs/redux'
+import './index.scss'
+
+import { add, minus, asyncAdd } from '../../actions/counter'
+
+@connect(({ counter }) => ({
+  counter
+}), (dispatch) => ({
+  add () {
+    dispatch(add())
+  },
+  dec () {
+    dispatch(minus())
+  },
+  asyncAdd () {
+    dispatch(asyncAdd())
+  }
+}))
+export default class Index extends Component {
+  config = {
+    navigationBarTitleText: '首页'
+  }
+
+  render () {
+    return (
+      <View className='todo'>
+        <Button className='add_btn' onClick={this.props.add}>+</Button>
+        <Button className='dec_btn' onClick={this.props.dec}>-</Button>
+        <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
+        <View>{this.props.counter.num}</View>
+      </View>
+    )
+  }
+}
+```
+> 官方给的案例
+
+connect 方法接受两个参数 ```mapStateToProps``` 与 ```mapDispatchToProps```
++ mapStateToProps: 函数类型，接受最新的 ```state``` 作为参数，用于将 ```state``` 映射到组件的 ```props```
++ mapDispatchToProps: 函数类型，接受最新的 ```state``` 作为参数，用于将 ```state``` 映射到组件的 ```props```
