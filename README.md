@@ -2,6 +2,7 @@
 >  React 可以使用 ... 拓展操作符来传递属性，但在 Taro 中你不能这么做
 > Taro组件的Props不能接受JSF或者组件, 组件名是什么，引入的时候也要叫什么
 > 但如果需要存储不用于视觉输出的东西，则可以手动向类中添加其他字段。 
+
 ## 组件的相关说明
 > Taro 的组建是一个纯的JS类,
 
@@ -14,6 +15,7 @@
   + config  官方说明是小程序独属
 
 ### 创建方法
+
 ```
 class ClassName extends Component {
     // 必须
@@ -22,17 +24,20 @@ class ClassName extends Component {
     }
 }
 ```
+
 >react不同，没有暴露createClass方法
 
 ### 生命周期
 
 #### 装载 Mounting
+
 + constructor()
 + componentWillMount()
 + render()
 + componentDidMount()
 
 #### 更新 Updating
+
 + componentWillReceiveProps()
 + shouldComponentUpdate()
 + componentWillUpdate()
@@ -40,11 +45,14 @@ class ClassName extends Component {
 + componentDidUpdate()
 
 #### 卸载(Unmounting)
+
 + componentWillUnmount()
 
 #### 其他API
+
 + setState()
 > 该操作是一个异步操作, this.setState(params, callBack)
+
 + forceUpdate()
 > 这两个API均会引起组建的自动更新
 
@@ -79,6 +87,7 @@ class ClassName extends Component {
   complete: function(){},
 }
 ```
+
 > 小程序中的说明：<br/>
 > url : 需要跳转的应用内非 tabBar 的页面的路径 , 路径后可以带参数。参数与路径之间使用?分隔，参数键与参数值用=相连，不同参数用&分隔；如 'path?key=value&key2=value2'<br/>
 > url中的参数可以通过 ```this.$router.params``` 但是只可以在目标页的 componentWillMount 生命周期里获取入参
@@ -120,6 +129,7 @@ class ClassName extends Component {
 
 ## 消息机制
 > ```Taro``` 提供了 ```Taro.Events``` 来实现消息机制。使用时需要先实例化。
+
 ```
 import Taro, {Events} from '@tarojs/taro'
 
@@ -150,7 +160,9 @@ events.off('eventName', handler1)
 // 取消监听所有事件
 events.off()
 ```
+
 全局消息中心
+
 ```
 import Taro from '@tarojs/taro'
 
@@ -164,6 +176,7 @@ Taro.eventCenter.off
 > 在编译时会将不属于当前编译类型的代码去掉，只保留当前编译类型下的代码，
 ### 例子
 > 在小程序和 H5 端分别引用不通过资源
+
 ```
 if (process.env.TARO_ENV === 'weapp') {
   require('path/to/weapp/name')
