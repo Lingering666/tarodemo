@@ -17,9 +17,33 @@ css 最好少嵌套
 
 + 申明: 使用@去申明变量 ```@bg : #000```
 + 使用: ```{background: @bg}```
++ 作用域 : 生效范围
 
-## arguments 变量
-> 用的不是很多， 作用就是引入全部的变量(定义的)
+## map
+> less 版本高于3.5
+```
+#color{
+  primary: blue;
+  success: green;
+  warn: yellow;
+  info: #bce8f1;
+}
+
+.btn{
+  .btn-info{
+    color: #color[info];
+  }
+  .btn-warn{
+    color: #color[warn];
+  }
+  .btn-success{
+    color: #color[success];
+  }
+  .btn-primary{
+    color: #color[primary];
+  }
+}
+``` 
 
 ## 混合
 > 引入其他申明的样式的内容, 常应用于浏览器兼容方面的写法
@@ -64,6 +88,9 @@ css 最好少嵌套
     .box5(20px);
   }
   ```
+  
+## arguments 变量
+> 用的不是很多， 作用就是引入全部的变量(定义的) 
 
 ## 匹配模式
 > 类似于if判断，但不完全是
@@ -155,5 +182,21 @@ triangles(@_, @w:5px, @c:#ccc){
 ## 避免编译
 > 使用```~'内容'``` 的方式让less不去编译内容。
 
+## import
+> ```@import url``` 的方式可以导入url中的less文件
 
-
+## extend
+```
+// 就是形成这样的css
+a,li,span{
+  font-size: 5px;
+}
+a{
+  &:extend(span);
+  // 下面还可一些其他的样式
+  color: blue;
+}
+span{
+  font-size: 5px;
+}
+```
