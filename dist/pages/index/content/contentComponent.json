@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "my-music": "./music/musicComponent",
+    "my-netease": "./netease/neteaseComponent"
+  },
+  "navigationBarTitleText": ""
+}

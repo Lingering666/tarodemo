@@ -1,1 +1,38 @@
 @charset "utf-8";
+@import "../../../app";
+
+@height: 100px;
+@icon-size: 50px;
+
+.content{
+  height: @height;
+  background-color: #color[red];
+  color: #color[white];
+}
+
+.tab-bar(@float:left){
+  float: @float;
+  padding: 25px 15px;
+  .image{
+    width: @icon-size;
+    height: @icon-size;
+  }
+}
+.category{
+  .tab-bar(left);
+}
+.navigation{
+  @padding: 40px;
+  margin: 0 auto;
+  width: 75%;
+  text-align: center;
+  .tab-bar(left);
+  .wrapper{
+    display: inline-block;
+    padding-left: @padding;
+    padding-right: @padding;
+  }
+}
+.search{
+  .tab-bar(right);
+}

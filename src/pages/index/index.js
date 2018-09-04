@@ -5,6 +5,9 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import './index.less'
 // 通过import 语句引入静态文件, 特别说明的是本地图片在使用前一定要引入
+// 自定义组件引入
+import MyTitle from './title/titleComponent'
+import MyContent from './content/contentComponent'
 
 /**
  * Taro 的页面同样是继承自 Component 组件基类，
@@ -19,7 +22,7 @@ import './index.less'
 export default class Index extends Component {
 
   config = {
-    navigationBarTitleText: '首页',//将会是页面的标题
+    navigationBarTitleText: '网易云音乐',//将会是页面的标题
   };
 
   /***********************************/
@@ -53,7 +56,8 @@ export default class Index extends Component {
 
     return (
       <View className='index'>
-        <Text>Hello world!</Text>
+        <MyTitle />
+        <MyContent />
       </View>
     )
 

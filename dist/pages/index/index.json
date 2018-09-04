@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "my-title": "./title/titleComponent",
+    "my-content": "./content/contentComponent"
+  },
+  "navigationBarTitleText": "网易云音乐"
+}

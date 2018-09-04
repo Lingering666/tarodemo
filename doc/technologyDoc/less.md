@@ -22,7 +22,7 @@ css 最好少嵌套
 ## map
 > less 版本高于3.5
 ```
-#color{
+#colors(){
   primary: blue;
   success: green;
   warn: yellow;

@@ -2,9 +2,15 @@
 import Taro, {Component} from '@tarojs/taro'
 // 这里的组件是 Taro 的组件 , View 即使用不到也最好引入
 // 组件的命名规范符合首字母大写的驼峰命名法
-import {View, Text} from '@tarojs/components'
-import './title.less'
+import {View, Button, Text, Icon, Image} from '@tarojs/components'
+
 // 通过import 语句引入静态文件, 特别说明的是本地图片在使用前一定要引入
+import './title.less'
+import music  from '../../../asset/icon/white/music-top.png'
+import category  from '../../../asset/icon/white/category.png'
+import netease  from '../../../asset/icon/white/netease.png'
+import search  from '../../../asset/icon/white/search.png'
+import play  from '../../../asset/icon/white/play-mp4.png'
 
 /**
  * Taro 的页面同样是继承自 Component 组件基类，
@@ -53,23 +59,28 @@ export default class TitleComponent extends Component {
      */
     render() {
 
-        return (
-            <View className=''>
-                <Text>Hello world!</Text>
-            </View>
-        )
-
-        /*
-    * JSF的补充说明
-    *   1 不能在包含 JSX 元素的 map 循环中使用 if 表达式
-    *   2 不能使用 Array\#map 之外的方法操作 JSX 数组
-    *   3 不能在 JSX 参数中使用匿名函数
-    *   4 暂不支持在 render() 之外的方法定义 JSX
-    *   5 不允许在 JSX 参数(props)中传入 JSX 元素
-    *   6 不能在 JSX 参数中使用对象展开符
-    *   7 不支持无状态组件
-    *   8 在 Taro 中，JS 代码里必须书写单引号，特别是 JSX 中，如果出现双引号，可能会导致编译错误。
-    */
+      return (
+        <View className='content'>
+          <View className='category' onClick={this.showMenu}><Image className='image' src={category} /></View>
+          <View className='navigation'>
+            <View className='wrapper' onClick={this.showMusic}><Image className='image' src={music} /></View>
+            <View className='wrapper'><Image className='image' src={netease} /></View>
+            <View className='wrapper'><Image className='image' src={play} /></View>
+          </View>
+          <View className='search'><Image className='image' src={search} /></View>
+        </View>
+      );
+      /*
+  * JSF的补充说明
+  *   1 不能在包含 JSX 元素的 map 循环中使用 if 表达式
+  *   2 不能使用 Array\#map 之外的方法操作 JSX 数组
+  *   3 不能在 JSX 参数中使用匿名函数
+  *   4 暂不支持在 render() 之外的方法定义 JSX
+  *   5 不允许在 JSX 参数(props)中传入 JSX 元素
+  *   6 不能在 JSX 参数中使用对象展开符
+  *   7 不支持无状态组件
+  *   8 在 Taro 中，JS 代码里必须书写单引号，特别是 JSX 中，如果出现双引号，可能会导致编译错误。
+  */
     }
 
     /**
@@ -159,7 +170,24 @@ export default class TitleComponent extends Component {
     /***********************************/
     /*           普通函数定义           */
     /***********************************/
+    showMenu(){
+      Taro.showToast({
+        ... toast,
+        title: '你点击了menu'
+      }).then();
+    }
 
-
+    showMusic(){
+      Taro.showToast({
+        ...toast,
+        title: '你点击了音乐',
+      }).then();
+    }
 }
 
+const toast = {
+  title:'提示内容',
+  icon: 'none', // 有效值 none(不显示) success(成功) loading(加载)
+  duration: 1200,
+  mask: false, // 是否有防止触摸层
+};

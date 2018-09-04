@@ -1,0 +1,39 @@
+
+@charset "utf-8";
+.content {
+  height: 100rpx;
+  background-color: red;
+  color: white;
+}
+.category {
+  float: left;
+  padding: 25rpx 15rpx;
+}
+.category .image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.navigation {
+  margin: 0 auto;
+  width: 75%;
+  text-align: center;
+  float: left;
+  padding: 25rpx 15rpx;
+}
+.navigation .image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.navigation .wrapper {
+  display: inline-block;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+.search {
+  float: right;
+  padding: 25rpx 15rpx;
+}
+.search .image {
+  width: 50rpx;
+  height: 50rpx;
+}

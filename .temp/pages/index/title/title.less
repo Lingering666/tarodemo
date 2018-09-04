@@ -1,0 +1,33 @@
+@charset "utf-8";
+@import "../../../app";
+
+@height: 100px;
+@icon-size: 30px;
+
+.content{
+  height: @height;
+  background-color: #color[red];
+  color: #color[white];
+}
+
+.category{
+  float: left;
+  .image{
+    width: @icon-size;
+    height: @icon-size;
+  }
+}
+
+.navigation{
+  width: 90%;
+  float: left;
+  text-align: center;
+}
+
+.search{
+  float: left;
+  .image{
+    width: @icon-size;
+    height: @icon-size;
+  }
+}

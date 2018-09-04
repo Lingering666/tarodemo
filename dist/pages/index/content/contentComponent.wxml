@@ -1,0 +1,6 @@
+<block>
+    <scroll-view class="content" scroll-x="{{true}}" scroll-with-animation="{{true}}">
+        <my-music __triggerObserer="{{ _triggerObserer }}"></my-music>
+        <my-netease __triggerObserer="{{ _triggerObserer }}"></my-netease>
+    </scroll-view>
+</block>

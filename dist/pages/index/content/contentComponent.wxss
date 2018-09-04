@@ -1,0 +1,6 @@
+
+@charset "utf-8";
+.content {
+  height: 950rpx;
+  background-color: #555;
+}

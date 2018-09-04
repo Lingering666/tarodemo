@@ -193,7 +193,7 @@ if (process.env.TARO_ENV === 'weapp') {
 我们将通过 tarojs/redux 提供的 connect 方法将 redux 与我们的页面进行连接。
 
 ```
-// src/pages/index/index.js
+// src/pages/index/musicComponent.js
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'

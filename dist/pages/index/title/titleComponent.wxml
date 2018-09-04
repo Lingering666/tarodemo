@@ -1,0 +1,21 @@
+<block>
+    <view class="content">
+        <view class="category" bindtap="showMenu">
+            <image class="image" src="{{category}}" />
+        </view>
+        <view class="navigation">
+            <view class="wrapper" bindtap="showMusic">
+                <image class="image" src="{{music}}" />
+            </view>
+            <view class="wrapper">
+                <image class="image" src="{{netease}}" />
+            </view>
+            <view class="wrapper">
+                <image class="image" src="{{play}}" />
+            </view>
+        </view>
+        <view class="search">
+            <image class="image" src="{{search}}" />
+        </view>
+    </view>
+</block>
